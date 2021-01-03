@@ -1,0 +1,25 @@
+server:
+  port: ${port:81}
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/mybatis
+    username: root
+    password: cpkd
+    type: org.springframework.jdbc.datasource.DriverManagerDataSource
+  application:
+    name: user-server # 配置应用名称
+mybatis:
+  type-aliases-package: com.bdqn.pojo
+
+eureka:
+  instance:
+    prefer-ip-address: true # 更倾向使用ip地址,而不是host
+    ip-address: 127.0.0.1 # 配置IP地址
+    lease-expiration-duration-in-seconds: 5    # 失效时间是90秒
+    lease-renewal-interval-in-seconds: 5    # 30给服务端汇报一次
+  client:
+    service-url:
+      # 服务端的地址
+      defaultZone: http://127.0.0.1:80/eureka
